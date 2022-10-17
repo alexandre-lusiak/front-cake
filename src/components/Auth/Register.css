@@ -1,0 +1,32 @@
+.form-container {
+    border: 1px solid black;
+    padding: 100px;
+    border-radius: 10%;
+    box-shadow: 10px 10px 10px black;
+    font-size: 20px;
+    text-align: center;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    justify-content: center;
+}
+.form-control div {
+    padding: 0px;
+    margin: 10px;
+}
+.input-container{
+        margin-top: 20px;
+}
+
+.button {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 20px;
+}
