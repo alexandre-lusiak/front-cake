@@ -37,7 +37,7 @@ let navigate = useNavigate();
             <Grid.Col className='navigation-grid' span={3}>
                 <Menu>
                     <Menu.Target >
-                        <Button  style={{backgroundColor:'black'}}><p  style={{color:'white',backgroundColor:'black'}}> {data?.lastName} {data?.firstName} </p><IconUser  size={24} style={{backgroundColor:'black',color:'white'}}/></Button>
+                        <Button  style={{backgroundColor:'#FFFCF8'}}><p  style={{color:'black',backgroundColor:'#FFFCF8'}}> {data?.lastName} {data?.firstName} </p><IconUser  size={24} style={{backgroundColor:'#FFFCF8',color:'black'}}/></Button>
                     </Menu.Target>
                     <Menu.Dropdown>
                         { data === null  ?

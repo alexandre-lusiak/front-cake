@@ -24,8 +24,21 @@ const currentUser = () => {
     return instance.get("/current/user");
 };
 
+const updateUser =(id:number,user:any) => {
+    return instance.put(`/user/${id}`,{
+        email: user.email,
+        lastName:user.lastName,
+        firstName:user.firstName,
+        phone:user.phone,
+        city:user.city,
+        address:user.address1,
+        postalCode:user.postalCode,
+        country : user.country
+    })
+}
+
 const userRequest = {
-    getUsers,currentUser,register
+    getUsers,currentUser,register,updateUser
 }
 
 export default userRequest;

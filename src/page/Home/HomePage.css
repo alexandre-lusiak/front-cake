@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+.home-container {
+    font-family: 'Playfair Display', serif;
+}
+
+h1{
+    color: black;
+    font-size: 100px;
+    text-align: center;
+}
+
+.home-text {
+    color:black;
+    font-size:25px;
+    margin-left: 20px;
+}

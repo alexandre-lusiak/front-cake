@@ -74,7 +74,6 @@ const handleSubmit = (values) => {
 
   return (
     <Box  className='form-container' sx={{ maxWidth: 680 }} mx="auto">
-      {messageError && <p style={{backgroundColor:'red',color:'white', border:'1px solid red', borderRadius:'5%'}}>{messageError}</p>}
       <form  onSubmit={form.onSubmit((values) => handleSubmit(values) )}>
         <div className='form-control'>
         <div>
