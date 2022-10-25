@@ -1,0 +1,27 @@
+.section-cake{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 50px;
+    padding:50px;
+    justify-content: center;
+}
+
+.card-cake{
+    width: 400px;
+    margin:10px;
+}
+
+section{
+    margin:15px;
+   
+}
+
+.filter{
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid rgb(185, 185, 185);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    letter-spacing: 2px;
+}

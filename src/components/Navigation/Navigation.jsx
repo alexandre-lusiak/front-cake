@@ -8,11 +8,12 @@ import useAuth from '../../Authentification/useAuth';
 import './Navigation.css'
 const Navigation = () => {
 
-const { logout } = useAuth();           
+const { logout ,isAuthenticated} = useAuth();           
 const {data,request:requestGetCurrentUser} = useApi(userRequest.currentUser);
 
 const [user, setUser] = useState({});
 let navigate = useNavigate();
+
     useEffect(() => {
         requestGetCurrentUser()
     }, []);
@@ -29,18 +30,22 @@ let navigate = useNavigate();
     
     return ( 
         <> 
-             
-        <Grid className='container-navigation'>
-            <Grid.Col className='navigation-grid' span={3}><Link className='link'  to={"/"}  >Home</Link></Grid.Col>
-            <Grid.Col className='navigation-grid' span={3}><Link  className='link' to={"/cakes"}  >Vos Gateaux Favoris</Link></Grid.Col>
-            <Grid.Col className='navigation-grid' span={3}><Link  className='link' to={"/contact"}  >contact</Link></Grid.Col>
-            <Grid.Col className='navigation-grid' span={3}>
+        <Grid className='container-navigation' >
+            <Grid.Col className='navigation-grid' span={1}><Link className='link'  to={"/"}  >Home</Link></Grid.Col>
+            <Grid.Col className='navigation-grid' span={3}><Link  className='link' to={"/cakes"}>Vos Gateaux</Link></Grid.Col>
+            <Grid.Col className='navigation-grid' span={2}><Link  className='link' to={"/contact"}  >contact</Link></Grid.Col>
+            <Grid.Col className='navigation-grid' span={3}><Link  className='link' to={"/recipes"}  >Recette</Link></Grid.Col>
+            {
+              isAuthenticated  && data?.roles?.includes('ROLE_ADMIN') &&
+            <Grid.Col className='navigation-grid' span={1}><Link  className='link' to={"/admin"}  >Admin</Link></Grid.Col>
+            }
+            <Grid.Col className='navigation-grid' span={1}>
                 <Menu>
                     <Menu.Target >
                         <Button  style={{backgroundColor:'#FFFCF8'}}><p  style={{color:'black',backgroundColor:'#FFFCF8'}}> {data?.lastName} {data?.firstName} </p><IconUser  size={24} style={{backgroundColor:'#FFFCF8',color:'black'}}/></Button>
                     </Menu.Target>
                     <Menu.Dropdown>
-                        { data === null  ?
+                        { !isAuthenticated()  ?
                         <>
                             <Menu.Item icon={<IconArrowBarLeft size={14} />}><Link className='dropdow' to={"/loggin"}  >connection</Link></Menu.Item>
                             <Menu.Item icon={<IconAd2 size={14} />}><Link  className='dropdow'  to={"/register"}  >inscription</Link></Menu.Item>
@@ -49,7 +54,7 @@ let navigate = useNavigate();
                         <>
                             <Menu.Item icon={<IconEggs  size={14} />}><Link className='dropdow' to={"/profil"}  >profil</Link></Menu.Item> 
                             <Menu.Item icon={<IconUser   size={14} />}> <Link className='dropdow'  to={"/commande"}  >commande</Link></Menu.Item> 
-                            <Menu.Item  icon={<IconArrowBarRight  size={14} />}> <Button onClick={handleLogout }>
+                            <Menu.Item  icon={<IconArrowBarRight  size={14} />}> <Button onClick={handleLogout}>
                                     Se déconnecter
                                     </Button>
                             </Menu.Item> 

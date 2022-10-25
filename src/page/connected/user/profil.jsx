@@ -1,4 +1,4 @@
-import { Box, Button, Group, Modal, TextInput,Table } from '@mantine/core';
+import { Box, Button, Group, Modal, TextInput,Table, Text } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 import userRequest from '../../../axios/user';
 import useApi from '../../../hooks/useApi';
@@ -7,74 +7,92 @@ import { useForm } from '@mantine/form';
 import { useNavigate } from 'react-router-dom';
 
 import { IconTrashX } from '@tabler/icons';
+import Navigation from '../../../components/Navigation/Navigation';
+import Footer from '../../../Footer/Footer';
+import useAuth from '../../../Authentification/useAuth';
 const ProfilUser = () => {
 let navigate = useNavigate()
+const { logout } = useAuth(); 
     const {data,request:requestCurrentUser}= useApi(userRequest.currentUser)
-    const {dataupdate,request:requestUpdateUser}= useApi(userRequest.updateUser);
-    const [opened, setOpened] = useState(false);
+    const {request:requestUpdateUser}= useApi(userRequest.updateUser);
+    const {request:deleteUser}= useApi(userRequest.deleteUser);
     const [user, setUser] = useState();
+    const [opened, setOpened] = useState(false);
+    const [openedDelete, setOpenedDelete] = useState(false);
 
-    useEffect(() => {
-        requestCurrentUser();
-        setUser(data);
-    },[])
-
+    
+    
     const form = useForm({
-        initialValues: {
-          firstName:'',
-          phone:'',
-          lastName :'',
-          email: '',
-          adress1:'',
-          postalCode:data?.postalCode,
-          city:'',
-          country:''
-          
-        },
-
-        // validate: {
-            //   lastName: (value) => (value === "" ? 'champs obligatoire' : null),
-            //   firstName: (value) => (value === "" ? 'champs obligatoire' : null),
-            //   email: (value) => (/^\S+@\S+$/.test(value) ? null : 'email non vallide'),
-            //   password: (value) => (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/.test(value) ? null : 'Mot de passe doit etre composer au 1 majuscule,1 caractere special et un chiffre'),
-            //   firstName: (value) => (value == ""  ? 'champs obligatoire' : null),
-            //   lastName: (value) => (value === ""  ? 'champs obligatoire' : null),
-            //   phone: (value) => (value.length < 8 ? 'champs obligatoire' : null),
-            //   address1: (value) => (value === ""  ? 'champs obligatoire' : null),
-            //   city: (value) => (value === ""  ? 'champs obligatoire' : null),
-            //   country: (value) => (value === "" ? 'champs obligatoire' : null),  
-            // },
-            
-        });
-        
-        
      
-      const handleSubmit = (values) => {
-        requestUpdateUser(data.id,values).then((res) => {
-        if(res.status === 200) {
-          showNotification({
-              title: 'SUCESS !!!',
-              message: 'Modification effectué',
-              color: 'green',
+
+      validate: {
+        lastName: (value) => (value === "" ? 'champs obligatoire' : null),
+        firstName: (value) => (value === "" ? 'champs obligatoire' : null),
+        email: (value) => (/^\S+@\S+$/.test(value) ? null : 'email non vallide'),
+        password: (value) => (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/.test(value) ? null : 'Mot de passe doit etre composer au 1 majuscule,1 caractere special et un chiffre'),
+        firstName: (value) => (value == ""  ? 'champs obligatoire' : null),
+        lastName: (value) => (value === ""  ? 'champs obligatoire' : null),
+        phone: (value) => (value.length < 8 ? 'champs obligatoire' : null),
+        adress1: (value) => (value === ""  ? 'champs obligatoire' : null),
+        city: (value) => (value === ""  ? 'champs obligatoire' : null),
+        country: (value) => (value === "" ? 'champs obligatoire' : null),  
+      },
+            
+          });
+          
+          useEffect(() => {
+              requestCurrentUser()
+                .then((res) => {
+                  form.setValues({
+                    lastName:res?.data?.lastName,
+                    firstName:res?.data?.firstName,
+                    email: res?.data?.email,
+                    phone : res?.data?.phone,
+                    city: res?.data?.adress?.city,
+                    address1: res?.data?.adress?.adress1,
+                    postalCode: res?.data?.adress?.postalCode,
+                    country: res?.data?.adress?.country,
+                    adress_id: res.data.adress.id
+                  })
+                });
+             
+          },[])
+          
+          
+          
+          const handleSubmit = (values) => {
+            
+            console.log('Values',values);
+            requestUpdateUser(data.id,values).then((res) => {
+              if(res.status === 200) {
+                showNotification({
+                  title: 'SUCESS !!!',
+                  message: 'Modification effectué',
+                  color: 'green',
               
-            })
-    
-           setTimeout(() => {
-             navigate('/loggin')
-           }, 2000)
-    
-        }
+                })
+                setOpened(false)
+                window.location.reload()
+              }
+              
+      }).catch((err) => { setOpened(false)
         
+        showNotification({
+          title: 'Erreur',
+          message: err.response.data,
+          color: 'red',
+        })
       })
     
-        
-        .catch((err) => { showNotification({
-          title: 'Erreur',
-          message: 'Echec de la quête',
-          color: 'red',
-        })})
-    
     }
+
+    const handleDelete = () => {
+        deleteUser(data?.id).then((res) => console.log(res)).catch((err) => console.log(err))
+        logout()
+        navigate('/')
+    }
+
+
 
     const elements = [
         { position: 6, mass: 12.011, symbol: 'C', name: 'Carbon' },
@@ -94,9 +112,11 @@ let navigate = useNavigate()
         </tr>
       ));
 
+ 
 
     return (
         <>
+        <Navigation></Navigation>
         <h1>{data.lastName} {data.firstName}</h1>
 
 
@@ -107,7 +127,7 @@ let navigate = useNavigate()
         size={'lg'}
       >
       
-      <form   onSubmit={form.onSubmit((values) => handleSubmit(values) )}>
+      <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
         <div className='form-control'>
         <div>
         <TextInput
@@ -141,8 +161,8 @@ let navigate = useNavigate()
         />
 
         <TextInput
-         className='input-container'
-           required
+          className='input-container'
+          required
           withAsterisk
           label="Email"
           placeholder="email"
@@ -157,10 +177,8 @@ let navigate = useNavigate()
           withAsterisk
           label="Pays"
           placeholder="Pays"
-          {...form.getInputProps('country')}
-          
           style={{width:'200px'}}
-         
+          {...form.getInputProps('country')}
           
         />
 
@@ -171,9 +189,7 @@ let navigate = useNavigate()
           withAsterisk
           label="Adresse"
           placeholder="Adresse"
-          {...form.getInputProps('adress1')}
-        
-        
+          {...form.getInputProps('address1')}
         />
 
 
@@ -184,8 +200,6 @@ let navigate = useNavigate()
           label="Ville"
           placeholder="Ville"
           {...form.getInputProps('city')}
-         
-          
         />
 
         <TextInput
@@ -196,12 +210,10 @@ let navigate = useNavigate()
           label="CP"
           placeholder="CP"
           {...form.getInputProps('postalCode')}
-          value={form?.value?.postalCode}
-         
         />
         </div>
         </div>
-          <Button className='button' type="submit">Valider</Button>
+          <Button  onClick={() => handleSubmit(form.values)}  type='submit' className='button'>Valider</Button>
       
       </form>
    
@@ -209,9 +221,22 @@ let navigate = useNavigate()
       <Group position="center">
         <Button onClick={() => setOpened(true)}>modifier Profil</Button>
         <Button onClick={() => console.log('okok')}>Commande</Button>
-        <Button onClick={() => console.log('okok')}> supprimer Profil :'(</Button>
+        <Button onClick={() => setOpenedDelete(true)}> supprimer Profil :'(</Button>
       </Group>
+      
+      <Modal opened={openedDelete} size="auto" title="Suppression du Compte">
+        <Text>Vous nous quittez ? :/ Attention toutes vos données seront supprimées ,aucun retour possible </Text>
 
+        <Group mt="xl">
+          <Button variant="outline" onClick={handleDelete}>
+            oui
+          </Button>
+          <Button variant="outline" onClick={() => setOpenedDelete(false)}>
+            Non
+          </Button>
+        </Group>
+      </Modal>
+     
 
       <h3>Vos commandes</h3>
       <Table verticalSpacing="xs"  horizontalSpacing="sm">
@@ -225,6 +250,7 @@ let navigate = useNavigate()
       </thead>
       <tbody>{rows}</tbody>
     </Table>
+    <Footer></Footer>
       </>
     )
 }

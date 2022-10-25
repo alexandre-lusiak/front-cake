@@ -9,6 +9,17 @@ import useAuth from './Authentification/useAuth';
 import AuthContext from './Authentification/contextAuth';
 import { NotificationsProvider } from '@mantine/notifications';
 import ProfilUser from './page/connected/user/profil';
+import AuthGuard from './utils/AuthAdmin';
+import AdminPage from './page/connected/admin/AdminPage';
+import CakePage from './page/connected/admin/cakeAdmin';
+import UserList from './page/connected/admin/UserList';
+import CakeList from './page/Cake/CakeList.jsx';
+import CakeItem from './page/Cake/CakeItem';
+import ContactPage from './page/contact/ContactPage';
+import ResetPwd from './components/Auth/resetPassword/resetPwd';
+
+
+
 function App() {
 
   useAuth().setup();
@@ -19,13 +30,20 @@ function App() {
   return (
   <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
     
-    <NotificationsProvider style={{ top:0 ,zIndex:-1 }} >
+    <NotificationsProvider style={{ top:300 ,position:'absolute',height:'50px' }} >
       <BrowserRouter>
         <Routes>
           <Route  path='/' element= {< HomePage />} />
           <Route  path='/Loggin' element= {<LogginPage/>} />
           <Route  path='/register' element= {<RegisterPage/>} />
+          <Route  path='/cakes' element= {<CakeList />} />
+          <Route  path='/cake/:id' element= {<CakeItem />} />
+          <Route path='/admin' element = {<AuthGuard><AdminPage/></AuthGuard>}></Route>
+          <Route path='/admin/oeil' element = {<AuthGuard><UserList/></AuthGuard>}></Route>
+          <Route path='/admin/cake' element = {<AuthGuard><CakePage/></AuthGuard>}></Route>
           <Route  path='/profil' element= {<ProfilUser/>} />
+          <Route  path='/reset/password' element= {< ResetPwd/>} />
+          <Route  path='/contact' element= {<ContactPage/>} />
         </Routes>
       </BrowserRouter>
     </NotificationsProvider>

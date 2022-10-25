@@ -109,8 +109,8 @@ const {dataCurrentUser , request:requestCurrentUser} = useApi(userRequest.curren
           <Button className='button' type="submit">Valider</Button>
       
       </form>
-      <p>pas de comptes ?</p>
-      <Link className='link' to={'/register'}>sign in</Link>
+
+      
     </Box>
   )
 }

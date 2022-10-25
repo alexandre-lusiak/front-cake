@@ -6,7 +6,7 @@
 
 
 .navigation-grid {
-    font-size: 20px;
+    font-size:25px;
     margin-top: 10px;
     
 }
@@ -25,4 +25,12 @@
 .dropdow {
     color:black;
     text-decoration: none;
+}
+
+
+@media screen and (max-width: 760px)
+{
+    .link:hover{
+        border-bottom: 1px solid blue;
+    }
 }

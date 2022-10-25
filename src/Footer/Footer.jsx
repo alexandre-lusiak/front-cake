@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import './Footer.css'
-import LOGO from '../asset/site/img/LOGOFRontCAKEss.png'
+import LOGO from '../asset/site/img/logo.jpg'
 import { Image } from '@mantine/core'
+import {GiHighKick} from 'react-icons/gi'
 const Footer = () => {
 
     return (
         <footer className='footer-container'>
-            <img src={LOGO} />
+            <div>
+            <GiHighKick style = {{transform: 'rotate(10deg)' }} size={150} color="white"/>
+            <img src={LOGO} width={200} style={{borderRadius:'50%'}} />
+            </div>
                 <div>
                     <h4>Ou nous suivre</h4>
                     <ul>
