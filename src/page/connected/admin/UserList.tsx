@@ -4,6 +4,8 @@ import userRequest from '../../../axios/user'
 import useApi from '../../../hooks/useApi'
 import { Table,Grid,TextInput,Button } from '@mantine/core';
 import { IconZoomReset } from '@tabler/icons';
+import ChartAdmin from '../../../components/Chart/Chart';
+import Navigation from '../../../components/Navigation/Navigation';
 const UserList= () => {
 
     const {data,request:requestGetUsers} = useApi(userRequest.getUsers)
@@ -66,6 +68,7 @@ const UserList= () => {
       ));
     return (
         <>
+         <Navigation/>
         <h1>list client:</h1>
         <Grid>
             <Grid.Col sm={'auto'} span={1} mx='xl'>
@@ -125,7 +128,8 @@ const UserList= () => {
         <tbody>{rows}</tbody>
       </Table>
       </Grid.Col>
-      </Grid>  </> 
+      </Grid>  
+      <ChartAdmin/></> 
       
       
     )

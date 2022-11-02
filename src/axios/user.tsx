@@ -70,6 +70,7 @@ const forgotPasword = (email:string)=> {
 }
 
 
+
 const userRequest = {
     getUsers,currentUser,register,updateUser,deleteUser,sendContact,createComment,getComment,forgotPasword
 

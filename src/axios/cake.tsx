@@ -15,13 +15,12 @@ const createCake = (cake:any) => {
         priceTTC: cake.priceTTC , 
         nbPerson:cake.nbPerson  , 
         weight:cake.weight,
-        isActif:cake.isActif
+        isActif:cake.isActif,
+        file:cake.file,
+        
     })
 }
 
-const uploadfile= (file:any,id:number) => {
-    return instance.post(`/cake/upload/${id}` ,JSON.stringify(file))
-}
 
 const edit =(id:number,cake:any) => {
     return instance.put(`/updateCake/${id}`,{
@@ -52,6 +51,6 @@ export const postFile = async (data : FormData,id:number) => {
 };
 
 const cakeRequest = {
-    createCake,getCakes,edit,uploadfile,deleteCake,getCake,like,postFile
+    createCake,getCakes,edit,deleteCake,getCake,like,postFile
 }
 export default cakeRequest;

@@ -1,23 +1,22 @@
 .section-card-item{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-around;
-    margin: 10px 10px 10px 10px;
+    margin:0.5rem
 }
 
+
+
 .card-item{
-    width:60%;
+    width:100%;
 }
 
 .container-comment{
-    width:30%;
+    width:100%;
     border-left: 2px solid black;
-    
+    margin: auto
 }
 
 h3{
     text-align: left;
-    margin:2rem
+    margin:0.5rem
 
 }
 
@@ -28,23 +27,99 @@ legend{
 }
 
 hr{
-    height:10px;
+    height:0.1rem;
     background-color: black;
     margin: 50px;
 }
 .text-comment{
-    height:100px;
-    border-top: 0;
+    height:200px;
+    border-top: 2px solid black;
     border-left:  0;
     border-right:  0;
     border-bottom: 2px solid black;
-    margin: auto;
+    margin: 0.3rem;
     resize: none;
-    width:500px;
-    margin-left:50px;
-    font-size: 15px;
-
+    width:90%;
+    font-size: 1rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
-p{
-    margin:10px
+
+.button-comment{
+    cursor: pointer;
+    background-color: black;
+    margin-left: 2rem;
+    color: white;
+    padding: 1rem;
+    border-radius: 10%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.date{
+    font-style: italic;
+}
+
+.comment-item{
+    margin:1rem;
+    border-bottom: 1px solid black;
+   
+}
+.content{
+    width: 100%;
+}
+.cake-img{
+    width: 10%;
+}
+
+
+@media screen and (min-width: 760px) {
+    .container-comment{
+        margin: auto;
+    }
+    .form-comment{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card-item{
+        width:70%;
+        margin: auto;
+    }
+    .title-card{
+        font-size:1.5rem;
+        font-weight: bold;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    h2{
+        margin-left: 1rem;
+    }
+    h5{
+        margin:0;
+        margin-top: 1rem;
+    }
+    .text-comment{
+        height:200px;
+        border-top: 2px solid black;
+        border-left:  0;
+        border-right:  0;
+        border-bottom: 2px solid black;
+        margin: 0.3rem;
+        resize: none;
+        width:100%;
+        font-size: 1rem;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .comment-item{
+        margin: auto;
+        width:30%;
+       
+    }
+    legend{
+        font-size: 2rem;
+    }
+    .content{
+        overflow-x: auto;
+        padding: 2rem;
+    }
+
+
+
 }

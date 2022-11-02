@@ -10,6 +10,7 @@ import { IconTrashX } from '@tabler/icons';
 import Navigation from '../../../components/Navigation/Navigation';
 import Footer from '../../../Footer/Footer';
 import useAuth from '../../../Authentification/useAuth';
+import './Profil.css'
 const ProfilUser = () => {
 let navigate = useNavigate()
 const { logout } = useAuth(); 
@@ -113,7 +114,7 @@ const { logout } = useAuth();
       ));
 
  
-
+console.log(data);
     return (
         <>
         <Navigation></Navigation>
@@ -238,8 +239,8 @@ const { logout } = useAuth();
       </Modal>
      
 
-      <h3>Vos commandes</h3>
-      <Table verticalSpacing="xs"  horizontalSpacing="sm">
+      <h3>Vos Gateaux liké</h3>
+      <Table style={{marginBottom:'300px',marginTop:'200px'}} verticalSpacing="xs"  horizontalSpacing="sm">
       <thead>
         <tr>
           <th>Element position</th>
@@ -249,7 +250,7 @@ const { logout } = useAuth();
         </tr>
       </thead>
       <tbody>{rows}</tbody>
-    </Table>
+    </Table >
     <Footer></Footer>
       </>
     )

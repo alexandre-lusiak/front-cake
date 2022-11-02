@@ -17,6 +17,10 @@ import CakeList from './page/Cake/CakeList.jsx';
 import CakeItem from './page/Cake/CakeItem';
 import ContactPage from './page/contact/ContactPage';
 import ResetPwd from './components/Auth/resetPassword/resetPwd';
+import ReceiptAdmin from './page/connected/admin/ReceiptAdmin';
+import RGPD from './page/Rules/rules';
+import About from './page/About/About';
+import Engagement from './page/About/Engagement';
 
 
 
@@ -27,12 +31,17 @@ function App() {
     useAuth().isAuthenticated()
   )
 
+  console.log('AAA',isAuthenticated);
+  
+
   return (
+
+
   <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
-    
     <NotificationsProvider style={{ top:300 ,position:'absolute',height:'50px' }} >
       <BrowserRouter>
         <Routes>
+          
           <Route  path='/' element= {< HomePage />} />
           <Route  path='/Loggin' element= {<LogginPage/>} />
           <Route  path='/register' element= {<RegisterPage/>} />
@@ -41,9 +50,14 @@ function App() {
           <Route path='/admin' element = {<AuthGuard><AdminPage/></AuthGuard>}></Route>
           <Route path='/admin/oeil' element = {<AuthGuard><UserList/></AuthGuard>}></Route>
           <Route path='/admin/cake' element = {<AuthGuard><CakePage/></AuthGuard>}></Route>
+          <Route path='/admin/receipt' element = {<AuthGuard><ReceiptAdmin/></AuthGuard>}></Route>
           <Route  path='/profil' element= {<ProfilUser/>} />
           <Route  path='/reset/password' element= {< ResetPwd/>} />
           <Route  path='/contact' element= {<ContactPage/>} />
+          <Route  path='/RGPD' element= {<RGPD/>} />
+          <Route  path='/about' element= {<About/>} />
+          <Route  path='/engagement' element= {<Engagement/>} />
+
         </Routes>
       </BrowserRouter>
     </NotificationsProvider>

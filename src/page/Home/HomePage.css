@@ -4,14 +4,42 @@
     font-family: 'Playfair Display', serif;
 }
 
-h1{
+.title-hompage{
     color: black;
-    font-size: 100px;
+    font-size:1.1rem;
     text-align: center;
 }
 
 .home-text {
     color:black;
-    font-size:25px;
-    margin-left: 20px;
+    font-size:1.5rem;
+    margin-left:1.2rem;
 }
+
+.home-receipt{
+    color:black;
+    font-size:1.3rem;
+    margin-left:1.2rem;
+}
+.icon-title{
+    font-size: 4rem;
+}  
+@media screen and (min-width: 760px) 
+{
+    .title-hompage{
+        font-size:1.8rem;
+    }  
+
+    .icon-title{
+        font-size: 100px;
+    }    
+}
+@media screen and (min-width: 1040px) {
+   
+    .title-hompage{
+        font-size:2.5rem;
+    }  
+
+}
+
+

@@ -13,6 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useApi from '../../hooks/useApi';
 import userRequest from '../../axios/user';
 import './Loggin.css';
+// import { sizes } from '@mantine/core/lib/Slider/SliderRoot/SliderRoot.styles';
 const Loggin = () => {
   const auth = useAuth();
   const navigation = useNavigate();
@@ -65,23 +66,7 @@ const {dataCurrentUser , request:requestCurrentUser} = useApi(userRequest.curren
 
 
   return (
-    // <section>
-    //         { sucess &&   <p>succés</p>}
-    //        {errMsg &&  <p  >{errMsg}</p>}
-    //         <Box sx={{ maxWidth: 700 }} className="container-register" mx="auto">
-
-    //   <form onSubmit={handleSubmit} style={{display:'flex',  flexDirection:'column'}}>
-    //     <label htmlFor="username">Email</label>
-    //     <input id ="email" type={'text'}  value={email} autoComplete="off" onChange={(e) => setEmail(e.target.value)}  required />
-
-    //     <label htmlFor="password">Mot de passe</label>
-    //     <input id ="password" type={'password'} value={password} onChange={(e) => setPassword(e.target.value)}  />
-
-    //     <Button type='submit' >sign in </Button>
-    //   </form>
-
-    // </Box>
-    // </section>
+    
     <Box className='form-container' sx={{ maxWidth: 300 }} mx="auto">
        { sucess &&   <p>succés</p>}
         {errMsg &&  <p  >{errMsg}</p>}
@@ -112,6 +97,8 @@ const {dataCurrentUser , request:requestCurrentUser} = useApi(userRequest.curren
 
       
     </Box>
+
+   
   )
 }
 
