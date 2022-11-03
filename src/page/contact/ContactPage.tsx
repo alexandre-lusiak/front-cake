@@ -47,7 +47,6 @@ const ContactPage = () => {
       phone: (value) => (value.length < 10 ? 'champs obligatoire' : null),
       city: (value) => (value === "" ? 'champs obligatoire' : null),
 
-
     },
   });
 
@@ -78,9 +77,9 @@ const ContactPage = () => {
     <>
 
       <Navigation/>
-      <h1 className='title-content'>Contact</h1>
+      {/* <h1 className='title-content'>Contact</h1> */}
       <div className='contact-container'>
-        <p className='text'>Envie de reserver son gateau ? une question ? </p>
+        <p className='text'>Envie de reserver son Gâteaux ? une question ?  </p>
         <div  className='box'>
           <form className='form' onSubmit={form.onSubmit((values) => handleSubmit(values))}>
             <div className='form-input'>
@@ -88,16 +87,16 @@ const ContactPage = () => {
                 <TextInput
                   className='input'
                   withAsterisk
-                  label="lastName"
-                  placeholder="lastName"
+                  label="Nom"
+                  placeholder="Nom"
                   {...form.getInputProps('lastName')}
                 />
 
                 <TextInput
                   className='input'
                   withAsterisk
-                  label="firstName"
-                  placeholder="firstName"
+                  label="Prénom"
+                  placeholder="Prénom"
                   {...form.getInputProps('firstName')}
                 />
 
@@ -115,15 +114,15 @@ const ContactPage = () => {
               <div  className='aside'>
                 <TextInput
                   className='input'
-                  label="phone"
-                  placeholder="phone"
+                  label="Tel."
+                  placeholder="Tel."
                   {...form.getInputProps('phone')}
                 />
 
                 <TextInput
                   className='input'
-                  label="city"
-                  placeholder="city"
+                  label="Ville"
+                  placeholder="Ville"
                   {...form.getInputProps('city')}
                 />
 

@@ -63,7 +63,7 @@ console.log(size.height/3);
           <Route  path='/RGPD' element= {<RGPD/>} />
           <Route  path='/about' element= {<About/>} />
           <Route  path='/engagement' element= {<Engagement/>} />
-
+          <Route path='*' element={<h1> 404 : Page not found</h1>} />
         </Routes>
       </BrowserRouter>
     </NotificationsProvider>

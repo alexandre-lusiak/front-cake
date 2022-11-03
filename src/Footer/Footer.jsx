@@ -28,9 +28,9 @@ const Footer = () => {
                 <div className='footer-item'>
                 <h4>Ou nous suivre ?</h4>
                     <ul className='list-footer social'>
-                        <li><a href='https://www.facebook.com/'><IconBrandFacebook color='white' size={30}/></a></li>
-                        <li><a href='https://www.instagram.com/'><IconBrandInstagram color='white' size={30}/></a></li>
-                        <li><a href='https://www.pinterest.com/'><IconBrandPinterest color='white' size={30}/></a></li>
+                        <li><a href='https://www.facebook.com/' target="_blank"><IconBrandFacebook color='white' size={30}/></a></li>
+                        <li><a href='https://www.instagram.com/' target="_blank"><IconBrandInstagram color='white' size={30}/></a></li>
+                        <li><a href='https://www.pinterest.com/' target="_blank"><IconBrandPinterest color='white' size={30}/></a></li>
                     </ul>
                 </div>
                 <div className='hr'></div>
@@ -43,11 +43,11 @@ const Footer = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className='link-footer'   to={'/about'}>
+                        <Link className='link-footer'   to={'/engagement'}>
                            Nos Principes
                         </Link></li>
                     <li>
-                        <Link className='link-footer'  to={'/about'}>
+                        <Link className='link-footer'  to={'/engagement'}>
                             Nos Engagement
                         </Link>
                     </li>

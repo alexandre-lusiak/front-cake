@@ -51,11 +51,13 @@ const CommentPage =() => {
       })
     
 }
+console.log(data.data);
 
 const rows =  data?.data?.map((comment:any,key:number) => 
          <tr key={comment.id}>
             <td>{comment?.user?.lastName} {comment?.user?.firstName}</td>
             <td>{comment?.content}</td>
+            <td>{comment?.product?.name}</td>
             <td>{new Intl.DateTimeFormat('fr-FR', { dateStyle: 'short',timeStyle:"medium" }).format( new Date(comment?.createdAt ?? new Date('1970-01-01')))} </td>
             <td> <Button style={{ marginRight: '5px', backgroundColor: 'white' }} onClick={() => {setOpendDelete(true) ; setcommentId(comment?.id)}  }><IconTrash color='red' /></Button></td>
         </tr>
@@ -70,6 +72,7 @@ const rows =  data?.data?.map((comment:any,key:number) =>
                 <tr style={{ textAlign: 'center' }}>
                   <th style={{ textAlign: 'center' }}>Utilisateur</th>
                   <th style={{ textAlign: 'center' }}>Contenu</th>
+                  <th style={{ textAlign: 'center' }}>Gateaux</th>
                   <th style={{ textAlign: 'center' }}>Date</th>
                   <th style={{ textAlign: 'center' }}>Action</th>
                 </tr>

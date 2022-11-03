@@ -7,8 +7,9 @@ import { Navigate } from "react-router-dom";
 
 const AuthGuard = ({children}) => {
     const user =  exportedStorageAuth.getUser();
-    console.log(user);
-    if(!user.roles.includes('ROLE_ADMIN')) return <Navigate to="/"/>
+    if(user === null || user === undefined ) return <Navigate to="/"/>
+
+    if(!user.roles.includes('ROLE_ADMIN') ) return <Navigate to="/"/>
     return children
        
 }

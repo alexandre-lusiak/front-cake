@@ -236,7 +236,7 @@ const ProfilUser = () => {
           <div className='item-info'>
             <h2 className="title-profil">Adresse</h2>
             <p><strong>CP: </strong>{data?.adress?.postalCode}</p>
-            <p><strong>Ville: </strong>{data?.data?.adress?.city}</p>
+            <p><strong>Ville: </strong>{data?.adress?.city}</p>
             <p><strong>Pays: </strong>{data?.adress?.country}</p>
             <p><strong>Adresse: </strong>{data?.adress?.adress1}</p>
           </div>

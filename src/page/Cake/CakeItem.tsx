@@ -128,7 +128,7 @@ user?.cakeLikes?.filter((w:any) => {
             <Group position="apart" mt="md" mb="xs">
               <Text className='title-card' weight={500}>{data.data?.name}</Text>
               <Badge size={'lg'} color="pink" variant="light">
-                {data.data?.category?.name}
+                {data?.data?.category?.name}
               </Badge>
             </Group>
             <Card.Section component="a" href="https://mantine.dev/">
@@ -139,10 +139,12 @@ user?.cakeLikes?.filter((w:any) => {
               />
             </Card.Section>
             <Text mt={'xl'} size="xl" color="dark">
-            {data.data?.category?.description}
+            {data?.data?.category?.description}
             </Text>
+           {  isAuthenticated() &&  
+           <div>
             {
-              liked && data.data.cakeLikes.length ?
+             liked && data?.data?.cakeLikes.length ?
              <> <h5>J'aime plus? </h5>
                 <div className='Liked'>
                   <Button onClick={handleLike} style={{ backgroundColor: "white" }} >
@@ -159,6 +161,7 @@ user?.cakeLikes?.filter((w:any) => {
                 </div>
                 </>
             }
+            </div> }
           </Card>
         </div>
 
@@ -169,7 +172,7 @@ user?.cakeLikes?.filter((w:any) => {
               <div className='form-comment'>
                 <h2>Place aux Avis!!</h2>
                 <form onSubmit={form.onSubmit((values) => handleSubmit(values))} className='fomr-comment'>
-                  <legend>Vos Avis sont notre imaginations</legend>
+                  <legend>Vos Avis sont notre imagination</legend>
                   <textarea className='text-comment' placeholder='Commentez....' onChange={(e) => form.setFieldValue('content', e.currentTarget.value)}></textarea>
 
                   <button className='button-comment'>Valider</button>

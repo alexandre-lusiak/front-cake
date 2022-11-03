@@ -15,7 +15,12 @@
     display: flex;
     flex-direction: column;
 }
-
+.button-send{
+   background-color: black;
+}
+.button-send:hover{
+    background-color: black;
+}
 @media screen and (min-width: 760px)
 {
     

@@ -1,3 +1,17 @@
+#Front-END : 
+    context: Projet de site vitre pour un patissier qui souhaite se lancer dans le digital prévue sorti du projet debut 2023 
+    autre : projet en cours de developpement 
+    Technologie :react 
+#Avant lancement du projet;
+    cmd :  npm install ou yarn install
+    vérifier que l'URL de l'instance d'axios soit bonne;
+#lancement projet ; 
+    cmd : npm start ou start install 
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

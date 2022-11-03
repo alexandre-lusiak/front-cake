@@ -166,7 +166,7 @@ const handleSubmit = (values) => {
         <Checkbox required label='accepter les régles des données personnels' />
         </div>
         </div>
-          <Button className='button' type="submit">Valider</Button>
+          <Button className='button-register' type="submit">Valider</Button>
       
       </form>
     </Box>

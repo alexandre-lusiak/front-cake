@@ -46,6 +46,7 @@ const ResetPwdForm = () => {
             message: `Réinitialisation  effectué`,
             color: 'green',
           })
+          navigate('/loggin')
 
           localStorage.removeItem('reset_token')
         }

@@ -7,6 +7,7 @@ import useApi from '../../../hooks/useApi';
 import requestStat from '../../../axios/stats';
 import { IconUsers ,IconCake  ,IconMessages,IconThumbUp } from '@tabler/icons';
 import FooterAdmin from '../../../Footer/FooterAdmin';
+import ChartAdmin from '../../../components/Chart/Chart';
 const AdminPage = () => {
     const{data,request} =useApi(requestStat.getStats);
 
@@ -20,7 +21,7 @@ const AdminPage = () => {
     <>      
     <NavigationAdmin/>
 
-    <h1 className='title-list-user'>Stat Front Cake</h1>
+    <h1 className='title-list-user'>Stats Front Cake</h1>
     <section className='section-stat'>
         <div className='item-stat cake-stat'>
             <h6><IconCake size={100}/></h6>
@@ -39,7 +40,7 @@ const AdminPage = () => {
             <p className='stat'> {data?.data?.like}</p>
         </div>
     </section>
-        <UserList/>
+    <ChartAdmin/>
         <FooterAdmin/>
     </> 
     )

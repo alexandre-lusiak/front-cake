@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-
+import Navigation from '../../components/Navigation/Navigation';
+import Footer from '../../Footer/Footer';
 
 const RGPD = () => {
 
     return (
         <>
+            <Navigation />
             <div>
                 <h1>Politique de confidentialité</h1>
 
@@ -287,7 +289,7 @@ const RGPD = () => {
                     </li>
                 </ul>
             </div>
-
+            <Footer />
         </>
     )
 }

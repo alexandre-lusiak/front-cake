@@ -275,7 +275,7 @@ const ReceiptAdmin = () => {
       }).catch((err) => {
         showNotification({
           title: 'Error !!!',
-          message: 'Création échoué',
+          message: 'Modification échoué',
           color: 'red',
 
         })
@@ -315,7 +315,7 @@ const ReceiptAdmin = () => {
       if (res.data.code === 200) {
         showNotification({
           title: 'SUCESS !!!',
-          message: `Aurevoir ingrdients ${res.data.data.name}`,
+          message: `Aurevoir ingredients ${res.data.data.name}`,
           color: 'green',
 
         })
@@ -325,7 +325,7 @@ const ReceiptAdmin = () => {
     }).catch((err) => {
       showNotification({
         title: 'Error !!!',
-        message: 'suppresion échoué',
+        message: 'Suppresion échoué',
         color: 'red',
 
       })

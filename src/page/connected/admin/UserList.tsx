@@ -7,6 +7,7 @@ import { IconZoomReset } from '@tabler/icons';
 import ChartAdmin from '../../../components/Chart/Chart';
 import Navigation from '../../../components/Navigation/Navigation';
 import NavigationAdmin from '../../../components/Navigation/NavigationAdmin';
+import FooterAdmin from '../../../Footer/FooterAdmin';
 const UserList= () => {
 
     const {data,request:requestGetUsers} = useApi(userRequest.getUsers)
@@ -68,8 +69,9 @@ const UserList= () => {
       ));
     return (
         <>
-        
-        <h1 className='title-list-user'>List client:</h1>
+        <NavigationAdmin/>
+        <section className='section-user-admin'>
+        <h1 className='title-list-user'>Liste client</h1>
         <Grid>
             <Grid.Col sm={'auto'} span={1} mx='xl'>
                         <TextInput type="text" name='lastName' 
@@ -107,7 +109,6 @@ const UserList= () => {
 
             
         </Grid>                   
-                           
         <Grid>
             <Grid.Col sm={'auto'} span={8} mx='xl'>
         <Table className='table-user' withBorder={true} fontSize={15} highlightOnHover={true} style={{textAlign:'center'}} m='lg' verticalSpacing="xs"  horizontalSpacing="xs">
@@ -127,8 +128,10 @@ const UserList= () => {
         <tbody>{rows}</tbody>
       </Table>
       </Grid.Col>
-      </Grid>  
-      <ChartAdmin/></> 
+      </Grid>  </section>
+      <FooterAdmin/>
+                           
+      </> 
       
       
     )

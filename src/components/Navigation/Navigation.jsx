@@ -26,6 +26,7 @@ const Navigation = () => {
 
     const handleLogout = () => {
         logout();
+        navigate('/')
         window.location.reload()
     }
 
@@ -45,11 +46,11 @@ console.log(window.innerHeight);
                                 </Menu.Target>
 
                                 <Menu.Dropdown className='dropdown-menu'>
-                                <Menu.Item icon={<IconEggs size={20} />}><Link className='menu-item' to={"/"}  >Home</Link></Menu.Item>
-                                <Menu.Item icon={<IconCake size={20} />}><Link className='menu-item' to={"/cakes"}  >Cake</Link></Menu.Item>
-                                <Menu.Item icon={<IconAddressBook size={20} />}><Link className='menu-item' to={"/contact"}  >Contact</Link></Menu.Item>
-                                <Menu.Item icon={<IconChefHat size={20} />}><Link className='menu-item' to={"/about"}  >NOUS</Link></Menu.Item>
-                                <Menu.Item icon={<IconChefHat size={20} />}><Link className='menu-item' to={"/engagement"}  >Action</Link></Menu.Item>
+                                <Menu.Item icon={<IconEggs size={15} />}><Link className='menu-item' to={"/"}  >Home</Link></Menu.Item>
+                                <Menu.Item icon={<IconCake size={15} />}><Link className='menu-item' to={"/cakes"}  >Cake</Link></Menu.Item>
+                                <Menu.Item icon={<IconAddressBook size={15} />}><Link className='menu-item' to={"/contact"}  >Contact</Link></Menu.Item>
+                                <Menu.Item icon={<IconChefHat size={15} />}><Link className='menu-item' to={"/about"}  >Nous</Link></Menu.Item>
+                                <Menu.Item icon={<IconChefHat size={15} />}><Link className='menu-item' to={"/engagement"}  >Action</Link></Menu.Item>
                                 </Menu.Dropdown>
                             </Menu>
                         </div>
@@ -100,8 +101,8 @@ console.log(window.innerHeight);
                             <Menu.Dropdown>
                                 {!isAuthenticated() ?
                                     <>
-                                        <Menu.Item icon={<IconArrowBarLeft size={14} />}><Link className='dropdow' to={"/loggin"}  >connection</Link></Menu.Item>
-                                        <Menu.Item icon={<IconAd2 size={14} />}><Link className='dropdow' to={"/register"}  >inscription</Link></Menu.Item>
+                                        <Menu.Item icon={<IconArrowBarLeft size={14} />}><Link className='dropdow' to={"/loggin"}>Connection</Link></Menu.Item>
+                                        <Menu.Item icon={<IconAd2 size={14} />}><Link className='dropdow' to={"/register"}>Inscription</Link></Menu.Item>
                                     </>
                                     :
                                     <>

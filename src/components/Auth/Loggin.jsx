@@ -30,6 +30,7 @@ const {dataCurrentUser , request:requestCurrentUser} = useApi(userRequest.curren
     console.log('values',values);
      
           const response = await exportedAuthApi.login(values.username, values.password)
+       
             .catch((err) => { showNotification({
               title: err.response.data.message,
               message: 'email et/ou mot de passe incorrect',
@@ -58,17 +59,17 @@ const {dataCurrentUser , request:requestCurrentUser} = useApi(userRequest.curren
         
       },
 
-      // validate: {
-      //   username: (value) => (/^\S+@\S+$/.test(value) ? null : 'Email Invalide'),
-      //   password: (value) => (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/.test(value) ? null : 'Invalid password'),
-      // },
+      validate: {
+        username: (value) => (/^\S+@\S+$/.test(value) ? null : 'Email Invalide'),
+        password: (value) => (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/.test(value) ? null : 'Invalid password'),
+      },
       
     });
 
 
   return (
     
-    <Box className='form-container' sx={{ maxWidth: 300 }} mx="auto">
+    <Box className='form-container-login' sx={{ maxWidth: 300 }} mx="auto">
        { sucess &&   <p>succés</p>}
         {errMsg &&  <p  >{errMsg}</p>}
       <form onSubmit={form.onSubmit((values) =>handleSubmit(values) )}>
@@ -95,11 +96,11 @@ const {dataCurrentUser , request:requestCurrentUser} = useApi(userRequest.curren
           <Button  className='button' type="submit">Valider</Button>
       
       <p>Mot de passe oublié ?</p>
-      <Link className='link' to={'/reset/password'}>Mot de passe oulié ?</Link> 
+      <Link className='link' to={'/reset/password'}>Cliquez ici</Link> 
       </form>
 
       <p>pas de comptes ?</p>
-      <Link className='link' to={'/register'}>s'inscrire</Link>
+      <Link className='link' to={'/register'}>Cliquez ici</Link>
     </Box>
 
    

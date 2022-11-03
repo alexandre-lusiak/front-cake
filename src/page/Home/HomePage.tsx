@@ -35,7 +35,7 @@ const HomePage = () => {
                     <p>petite faim coquine , gros gueulton entre amis , ou grosse receptions ,  nou somme la...</p>
                     <p>la... pour vous exploser... le bide!! et régaler vos papilles</p>
                 </div>
-                <CarouselCard></CarouselCard>
+                <CarouselCard />
                 <hr></hr>
                 <div className="home-receipt">
                     <h1 className="title-hompage"> Venez découvrir La Recette de la Semaine !!!

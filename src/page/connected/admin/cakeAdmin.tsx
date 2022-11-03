@@ -136,8 +136,7 @@ const CakePage = () => {
   }
   )
 
-
-  const handleDeleteCake = () => {
+const handleDeleteCake = () => {
 
 
     requestDeleteCake(cakeId).then((res) => {
@@ -167,7 +166,7 @@ const CakePage = () => {
       if (res.status === 200) {
         showNotification({
           title: 'SUCESS !!!',
-          message: `Aurevoir gateaux ${res.data.data.name}`,
+          message: `Aurevoir Category ${res.data.data.name}`,
           color: 'green',
 
         })
@@ -177,7 +176,7 @@ const CakePage = () => {
     }).catch((err) => {
       showNotification({
         title: 'Error !!!',
-        message: 'suppresion échoué',
+        message: 'Suppresion échoué',
         color: 'red',
 
       })
@@ -249,7 +248,7 @@ const CakePage = () => {
         if (res.status === 200) {
           showNotification({
             title: 'SUCESS !!!',
-            message: 'category créée',
+            message: 'category modifié',
             color: 'green',
 
           })
@@ -259,7 +258,7 @@ const CakePage = () => {
       }).catch((err) => {
         showNotification({
           title: 'Error !!!',
-          message: 'Création échoué',
+          message: 'Modification échoué',
           color: 'red',
 
         })
@@ -471,7 +470,6 @@ const CakePage = () => {
     </tr>
   ));
 
-
   return (
 
 
@@ -488,7 +486,7 @@ const CakePage = () => {
       <Modal
         opened={opened}
         onClose={() => setOpened(false)}
-        title="Création Profile"
+        title="Créer Gateaux"
         size={'lg'}
       >
 
@@ -566,7 +564,7 @@ const CakePage = () => {
       <Modal
         opened={openedCategory}
         onClose={() => setOpenedCategory(false)}
-        title="Recette Gateaux"
+        title="Creer Categorie"
         size={'lg'}
       >
         <Box mx={'xs'} sx={{ maxWidth: 500, maxHeight: 500 }} style={{ padding: '25px', borderRadius: '15%' }} >
@@ -674,7 +672,7 @@ const CakePage = () => {
 
 
         <Modal onClose={() => setOpenedDeleteCategory(false)} opened={openedDeleteCategory} size="auto" title="Suppression du Produit">
-          <Text>voulez-vous vraiment supprimer cette category , ne soyez pas trop hatif jeune ... ? :/ Attention toutes suppressions est irrévocable </Text>
+          <Text>voulez-vous vraiment supprimer cette categorie , ne soyez pas trop hatif jeune ... ? :/ Attention toutes suppressions est irrévocable </Text>
 
           <Group mt="xl">
             <Button variant="outline" onClick={handleDeleteCategory}>
@@ -702,7 +700,7 @@ const CakePage = () => {
         <Modal
           opened={openededitCake}
           onClose={() => setOpenededitCake(false)}
-          title="Modifier Profile"
+          title="Modifier Gateaux"
           size={'lg'}
         >
 
