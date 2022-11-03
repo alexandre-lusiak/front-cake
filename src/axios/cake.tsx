@@ -29,7 +29,8 @@ const edit =(id:number,cake:any) => {
         priceTTC: cake.priceTTC , 
         nbPerson:cake.nbPerson  , 
         weight:cake.weight ,
-        isActif:cake.isActif
+        isActif:cake.isActif,
+        file:cake.file,
     })
 }
 

@@ -34,11 +34,12 @@ const ChartAdmin = () => {
           backgroundColor:'red',
         },
         bars: "vertical",
-        bar: { groupWidth: "10%" }
+        bar: { groupWidth: "10%" },
+        showRowNumber: false,
        
        
       };
-      cakes.map((cake:any) => console.log(cake))
+      
     return (
 <>
         <div style={{display:'flex',flexWrap:'wrap'}}>
@@ -49,8 +50,8 @@ const ChartAdmin = () => {
                 width="100%"
                 height="400px"
                 data={[
-                    ['Gateaux', 'commentaires', 'likes'],
-                    [`Gateaux :${cake.name}`, `${cake.comments.length}`, `${cake.cakeLikes.length}`],
+                    [`${cake.name}`, 'commentaires', 'likes'],
+                    [`Gateaux`, cake.comments.length, cake.cakeLikes.length],
                     
                   ]}
                   options={options}

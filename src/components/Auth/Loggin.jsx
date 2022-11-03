@@ -42,6 +42,7 @@ const {dataCurrentUser , request:requestCurrentUser} = useApi(userRequest.curren
           requestCurrentUser().then(res => {
             if (auth.isAuthenticated()) {
               navigation('/')
+              requestCurrentUser()
               window.location.reload()
             }else {
               navigation('/loggin')
@@ -91,11 +92,14 @@ const {dataCurrentUser , request:requestCurrentUser} = useApi(userRequest.curren
           {...form.getInputProps('password')}
         />
 
-          <Button className='button' type="submit">Valider</Button>
+          <Button  className='button' type="submit">Valider</Button>
       
+      <p>Mot de passe oublié ?</p>
+      <Link className='link' to={'/reset/password'}>Mot de passe oulié ?</Link> 
       </form>
 
-      
+      <p>pas de comptes ?</p>
+      <Link className='link' to={'/register'}>s'inscrire</Link>
     </Box>
 
    

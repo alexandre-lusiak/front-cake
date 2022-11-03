@@ -48,8 +48,8 @@ console.log(window.innerHeight);
                                 <Menu.Item icon={<IconEggs size={20} />}><Link className='menu-item' to={"/"}  >Home</Link></Menu.Item>
                                 <Menu.Item icon={<IconCake size={20} />}><Link className='menu-item' to={"/cakes"}  >Cake</Link></Menu.Item>
                                 <Menu.Item icon={<IconAddressBook size={20} />}><Link className='menu-item' to={"/contact"}  >Contact</Link></Menu.Item>
-                                <Menu.Item icon={<IconChefHat size={20} />}><Link className='menu-item' to={"/receipt"}  >NOUS</Link></Menu.Item>
-                                <Menu.Item icon={<IconChefHat size={20} />}><Link className='menu-item' to={"/receipt"}  >Action</Link></Menu.Item>
+                                <Menu.Item icon={<IconChefHat size={20} />}><Link className='menu-item' to={"/about"}  >NOUS</Link></Menu.Item>
+                                <Menu.Item icon={<IconChefHat size={20} />}><Link className='menu-item' to={"/engagement"}  >Action</Link></Menu.Item>
                                 </Menu.Dropdown>
                             </Menu>
                         </div>
@@ -68,7 +68,7 @@ console.log(window.innerHeight);
                                         <>
                                             <Menu.Item icon={<IconEggs size={14} />}><Link c className='menu-item'to={"/profil"}  >profil</Link></Menu.Item>
                                             <Menu.Item icon={<IconUser size={14} />}> <Link  className='menu-item' to={"/commande"}  >commande</Link></Menu.Item>
-                                            <Menu.Item icon={<IconArrowBarRight size={14} />}> <Button onClick={handleLogout}>
+                                            <Menu.Item icon={<IconArrowBarRight size={14} />}> <Button className='btn-crud' onClick={handleLogout}>
                                                 Se déconnecter
                                             </Button>
                                             </Menu.Item>
@@ -82,7 +82,7 @@ console.log(window.innerHeight);
                 </>
                     :
 
-                    <div className='container-navigation'  style={{marginTop:'2rem'}}>
+                    <div className='container-navigation'>
                         <Link className='link' to={"/"}  >Home</Link>
                         <Link className='link' to={"/cakes"}>Vos Gateaux</Link>
                         <Link className='link' to={"/about"}  >Qui Somme Nous?</Link>
@@ -107,7 +107,7 @@ console.log(window.innerHeight);
                                     <>
                                         <Menu.Item icon={<IconEggs size={14} />}><Link className='dropdow' to={"/profil"}  >profil</Link></Menu.Item>
                                         <Menu.Item icon={<IconUser size={14} />}> <Link className='dropdow' to={"/commande"}  >commande</Link></Menu.Item>
-                                        <Menu.Item icon={<IconArrowBarRight size={14} />}> <Button onClick={handleLogout}>
+                                        <Menu.Item icon={<IconArrowBarRight size={14} />}> <Button className='btn-crud' onClick={handleLogout}>
                                             Se déconnecter
                                         </Button>
                                         </Menu.Item>

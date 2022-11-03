@@ -8,6 +8,7 @@ import Navigation from '../../components/Navigation/Navigation';
 import Footer from '../../Footer/Footer';
 import './Contact.css'
 import { ClassNames } from '@emotion/react';
+import { showNotification } from '@mantine/notifications';
 const ContactPage = () => {
   const { data: datatUser, request: requestgetCurrentUser } = useApi(userRequest.currentUser);
   const { request: requestSendContact } = useApi(userRequest.sendContact)
@@ -52,17 +53,31 @@ const ContactPage = () => {
 
   const handleSubmit = (values: any) => {
 
-    requestSendContact(values).then((data) => {
-      console.log(data)
+    requestSendContact(values).then((res) => {
+      if(res?.data.code === 200)
+      showNotification({
+        title: 'SUCESS !!!',
+        message: 'Message envoyé',
+        color: 'green',
 
-    }).catch((err) => console.log(err.response.message)
-    )
+      })
+     
+    })
+    .catch((err) => {
+      console.log(err);
+      showNotification({
+          title: 'Erreur !!!',
+          message: 'message perdu',
+          color: 'red',
+
+        })
+    })
   }
 
   return (
     <>
 
-      <Navigation></Navigation>
+      <Navigation/>
       <h1 className='title-content'>Contact</h1>
       <div className='contact-container'>
         <p className='text'>Envie de reserver son gateau ? une question ? </p>

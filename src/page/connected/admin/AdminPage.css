@@ -6,15 +6,36 @@ h1{
     font-size:2.5rem;
 }
 
+.section-stat{
+    display: flex;
+    justify-content: space-around;
+}
+
+.item-stat{
+    margin:1rem;
+    text-align: center;
+}
+.stat{
+        color:green;
+        font-size: 2rem;
+}
 
 
-@media screen and (max-width:769px) {
+.title-cake-admin{
+    text-align: center;
+}
+@media screen and (min-width:769px) {
     .table-container{
         display: flex;
         margin:5rem  auto;
         color:'red';
         background-color: blue;
         width:20%
+    }
+
+    .hr-cake{
+        width: 50%;
+        margin: 2rem auto;
     }
 }
     

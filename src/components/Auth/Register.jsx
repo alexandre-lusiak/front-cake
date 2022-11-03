@@ -163,6 +163,7 @@ const handleSubmit = (values) => {
           placeholder="CP"
           {...form.getInputProps('postalCode')}
         />
+        <Checkbox required label='accepter les régles des données personnels' />
         </div>
         </div>
           <Button className='button' type="submit">Valider</Button>

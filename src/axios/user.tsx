@@ -69,10 +69,20 @@ const forgotPasword = (email:string)=> {
     })
 }
 
+const resetPwd = (password:string,confirmaPassword:string, reset_token:string)=> {
+    return instance.post(`/reset/password`,{
+        password:password,
+        confirmaPassword:confirmaPassword,
+        reset_token:reset_token
+
+    }
+    )
+}
+
 
 
 const userRequest = {
-    getUsers,currentUser,register,updateUser,deleteUser,sendContact,createComment,getComment,forgotPasword
+    getUsers,currentUser,register,updateUser,deleteUser,sendContact,createComment,getComment,forgotPasword,resetPwd
 
 }
 

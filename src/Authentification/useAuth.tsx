@@ -25,7 +25,6 @@ const useAuth = () => {
     };
 
     const setAxiosToken = (token: any) =>{
-        console.log('TTOTOTOTOTOT',token);
 
         instance.defaults.headers["Authorization"] = "Bearer " + token;
     }

@@ -14,7 +14,24 @@ body {
 }
 
 
+.title-list-user{
+  margin-left: 2rem;
+}
 
+.title-cake-admin{
+  margin-left: 2rem;
+}
 
+.btn-crud{
+  background-color: black;
+}
 
+.btn-crud:hover{
+  background-color: black;
+  scale: 1.1;
+}
 
+.link-acake{
+text-decoration: none;
+color: black;
+}

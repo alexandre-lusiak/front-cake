@@ -6,10 +6,11 @@ import { Table,Grid,TextInput,Button } from '@mantine/core';
 import { IconZoomReset } from '@tabler/icons';
 import ChartAdmin from '../../../components/Chart/Chart';
 import Navigation from '../../../components/Navigation/Navigation';
+import NavigationAdmin from '../../../components/Navigation/NavigationAdmin';
 const UserList= () => {
 
     const {data,request:requestGetUsers} = useApi(userRequest.getUsers)
-    console.log(data);
+  
     
     const [filter,setFilter] = useState({
         lastNameUser:"",
@@ -54,7 +55,6 @@ const UserList= () => {
           <td>{user?.email ?? '-' }</td>
           <td>{user?.phone ?? '-' }</td>
           <td>{user?.adress.adress1 ?? '-' }</td>
-          <td>{user?.adress.adress2 ?? '-' }</td>
           <td>{user?.adress?.city ?? '-' }</td>
           <td>{user?.adress?.country ?? '-' }</td>
           <td>{user?.adress.postalCode ?? '-' }</td>
@@ -68,8 +68,8 @@ const UserList= () => {
       ));
     return (
         <>
-         <Navigation/>
-        <h1>list client:</h1>
+        
+        <h1 className='title-list-user'>List client:</h1>
         <Grid>
             <Grid.Col sm={'auto'} span={1} mx='xl'>
                         <TextInput type="text" name='lastName' 
@@ -102,7 +102,7 @@ const UserList= () => {
             </Grid.Col>
 
             <Grid.Col sm={'auto'} span={1} mx='xl'>
-            <Button onClick={resetFilter} ><IconZoomReset/></Button>
+            <Button className='btn-crud' onClick={resetFilter} ><IconZoomReset/></Button>
             </Grid.Col>
 
             
@@ -115,9 +115,8 @@ const UserList= () => {
             <tr  style={{textAlign:'center'}}>
               <th  style={{textAlign:'center'}}>Nom</th>
               <th  style={{textAlign:'center'}}>Email</th>
-              <th  style={{textAlign:'center'}}>Phone</th>
-              <th  style={{textAlign:'center'}}>Adress1</th>
-              <th  style={{textAlign:'center'}}>Adress2</th>
+              <th  style={{textAlign:'center'}}>Tel.</th>
+              <th  style={{textAlign:'center'}}>Addresse</th>
               <th  style={{textAlign:'center'}}>Ville</th>
               <th  style={{textAlign:'center'}}>Pays</th>
               <th  style={{textAlign:'center'}}>CP</th>

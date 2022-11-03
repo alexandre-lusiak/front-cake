@@ -9,15 +9,12 @@ const LogginPage = () => {
 
   return (
     <div>
-    <Navigation></Navigation>
+    <Navigation/>
     <div className='loggin-container'>
-      <h1>Loggin</h1>
+      <h1>Se Connecter</h1>
       <Loggin></Loggin>
     </div>
-    <p>pas de comptes ?</p>
-      <Link className='link' to={'/register'}>sign in</Link>
-      <p>Mot de passe oublié ?</p>
-      <Link className='link' to={'/reset/password'}>sign in</Link> 
+   
     <Footer></Footer>
     </div>
   )

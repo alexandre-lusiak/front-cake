@@ -15,6 +15,7 @@ import exportedStorageAuth from '../../Authentification/storage'
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import instance from '../../axios/axios'
 import { URL_API_FILES } from '../../const/URL_API'
+import { showNotification } from '@mantine/notifications'
 const CakeItem = () => {
   const { isAuthenticated } = useAuth();
   useAuth()
@@ -94,12 +95,24 @@ user?.cakeLikes?.filter((w:any) => {
 
   const handleSubmit = (values: any) => {
     requestPostComment(user?.id, values).then((res) => {
-      if(res.statut === 200){
+      if(res.data.code === 200){
+        showNotification({
+          title: 'SUCESS !!!',
+          message: 'commetaire écrit',
+          color: 'green',
 
+        })
+        requestgetCurrentUser()
+        requestCake(id)
       }
+    }).catch(err => {
+      showNotification({
+        title: 'Erreur!!!',
+        message: 'Commentaire Fail',
+        color: 'red',
+
+      })
     })
-    requestgetCurrentUser()
-    requestCake(id)
 
   }
 
@@ -126,9 +139,7 @@ user?.cakeLikes?.filter((w:any) => {
               />
             </Card.Section>
             <Text mt={'xl'} size="xl" color="dark">
-              With Fjord Tours With Fjord Tours With Fjord Tours With Fjord
-              Tours With Fjord Tours With Fjord Tours With Fjord
-              Tours With Fjord Tours  With Fjord Tours With Fjord Tours With Fjord Tours With Fjord Tours With Fjord Tours With Fjord Tours With Fjord Tours With Fjord Tours With Fjord Tours
+            {data.data?.category?.description}
             </Text>
             {
               liked && data.data.cakeLikes.length ?
@@ -166,7 +177,7 @@ user?.cakeLikes?.filter((w:any) => {
               </div>
               :
               <>
-                <h3>Commentaire</h3>
+                <h3 className='title-com'>Commentaire</h3>
                 <p>Inscrivez-vous , pour pouvoir commenter</p> </>}
           <hr></hr>
           {data?.data?.comments?.length > 0 ? data?.data?.comments?.map((comment: any, key: number) => {

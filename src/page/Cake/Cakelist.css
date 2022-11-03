@@ -37,10 +37,22 @@ section{
     width: 50%;
 }
 
+.count-cake{
+    font-size: 1rem;
+}
+.span-cake{
+    font-size: 1.5rem;
+    color: white;
+    border: 1px solid black;
+    padding:5px;
+    margin-left:10px;
+    background-color: green;
+}
+
 @media screen and (min-width: 1024px)
 {
     .section-cake{
-   
+        width: 80%;
         padding:1rem;
         display: flex;
         flex-direction: row;

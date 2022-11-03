@@ -18,7 +18,7 @@ import {
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
-    const size =useResize();
+    const size =useResize(); 
     return (
         <footer className='footer-container'>
             {/* <div>

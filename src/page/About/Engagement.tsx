@@ -11,7 +11,7 @@ const Engagement = () => {
 
         <>
             <Navigation />
-            <h1 className='title-about-one'>Decouvrez Nos Engagements , on met des kick dans las grande surface !!!</h1>
+            <h1 className='title-about-one'>Decouvrez Nos Engagements</h1>
             <div className='lala'>
             <section className='section-one'>
                 <h3 className='title-about'>Anti-Gachi</h3>
@@ -28,7 +28,7 @@ const Engagement = () => {
             <section className='section-one'>
                 <h3 className='title-about'>Fermier Local</h3>
                 <div className='about-one'>
-                    <img className='img-one' src={BIO}></img>
+                    <img className='img-one bio' src={BIO}></img>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip

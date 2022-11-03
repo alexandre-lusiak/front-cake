@@ -7,7 +7,7 @@ import Footer from "../../Footer/Footer";
 export const RegisterPage = () => {
     return (
         <div>
-        <Navigation></Navigation>
+        <Navigation/>
         <div className='register-container'>
           <h1>Inscription</h1>
           <Register></Register>

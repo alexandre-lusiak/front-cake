@@ -6,11 +6,14 @@
 }
 
 .container-navigation{
+        display: flex;
         text-align: center;
+    justify-content: center;
         background-color: #FFFCF8;
         color: black;
         width: 100%;
-       
+        margin-top:2rem;
+
 
 }
 
@@ -18,6 +21,7 @@
     background-color: black;
    
 }
+
 .navigation-grid {
     font-size:2.2rem;
     margin-top: 1rem;
@@ -32,6 +36,10 @@
      font-weight: bold;
      font-family: 'Playfair Display', serif;
     
+}
+
+.link:hover{
+    scale: 1.1;
 }
 
 .link:hover{
@@ -68,6 +76,9 @@
         justify-content: space-around;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    .admin{
+        margin-top: 2rem;
+    }
    
 }
 
@@ -76,8 +87,13 @@
 {
     .container-navigation{
         display: flex;
+        flex-direction: row;
         justify-content: space-around;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin:3rem 0
+    }
+    .admin{
+        margin-top: 2rem;
     }
   
 }
